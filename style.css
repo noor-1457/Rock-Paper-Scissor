@@ -1,12 +1,22 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
 }
+
+body {
+  background: #0f0f0f;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  color: white;
+}
+
+/* Glow border container */
 .glow-border {
   position: relative;
-  padding: 20px; /* border thickness */
+  padding: 20px;
   border-radius: 16px;
   background: linear-gradient(45deg,
     #ff0000,
@@ -20,94 +30,132 @@
     #ff0000);
   background-size: 400% 400%;
   animation: glow-border-animation 10s linear infinite;
-  filter: drop-shadow  (inset 0 0 25px #ff00f5 (128, 0, 255, 0.4)); /* glowing effect */
+  max-width: 600px;
+  margin: auto;
+  width: 100%;
 }
 
 @keyframes glow-border-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Game box inside the border */
 .game-box {
   background: white;
-  padding: 25px 25px;
+  padding: 25px;
   border-radius: 12px;
   min-height: 650px;
   box-shadow:
     inset 0 0 35px rgba(128, 0, 255, 0.5),
     inset 0 0 10px rgba(128, 0, 255, 0.3);
+  color: black;
 }
 
-
-
-h1{
-    height: 50px;
-    background-color: blueviolet;
-    color: aliceblue;
-    size: 3rem;
-    text-align: center;
-    border: 3px solid black;
-    line-height: 3rem;
-}
-.choice{
-    height: 165px;
-    width: 165px;
-    margin-top: 10px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+/* Title */
+h1 {
+  background-color: blueviolet;
+  color: aliceblue;
+  font-size: 2rem;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.choice:hover{
-    cursor: pointer;
-    opacity: 0.5;
+/* Choice image containers */
+.choice {
+  height: 140px;
+  width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  transition: 0.3s;
 }
 
-img{
-    display: flex;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 2px;
+.choice:hover {
+  cursor: pointer;
+  opacity: 0.6;
+  transform: scale(1.05);
 }
 
-.choices{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+/* Images */
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-.score-board{
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-top: 3rem;
-    gap: 3rem;
+/* Choices layout */
+.choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-#user-score, #comp-score{
-    font-size: 4rem;
-}
-.msg-container{
-    margin-top: 5rem;
+/* Scoreboard layout */
+.score-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.5rem;
+  flex-wrap: wrap;
 }
 
-#msg{
-    margin: 100px;
-    font-size: 3rem;
-    color: white;
-    background-color: blueviolet;
-    border: 3px solid black;
-    display: inline;
-    border-radius: 10px;
-    padding: 1rem;
+#user-score, #comp-score {
+  font-size: 3rem;
+}
+
+/* Message */
+.msg-container {
+  margin-top: 3rem;
+}
+
+#msg {
+  font-size: 2rem;
+  color: white;
+  background-color: blueviolet;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  display: inline-block;
+}
+
+/* ----------- Mobile responsiveness ----------- */
+@media (max-width: 600px) {
+  .choice {
+    height: 100px;
+    width: 100px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .score-board {
+    gap: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  #user-score, #comp-score {
+    font-size: 2.5rem;
+  }
+
+  #msg {
+    font-size: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .game-box {
+    min-height: auto;
+    padding: 20px 15px;
+  }
 }
