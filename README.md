@@ -8,7 +8,8 @@ A simple and interactive Rock-Paper-Scissors game built using HTML, CSS, and Jav
 
 ## 📸 Screenshot
 
-![Game Screenshot](./Screenshot%2025-07-11.png)  
+![Game Screenshot](./Screenshot%202025-07-11.png)
+
 
 ---
 
